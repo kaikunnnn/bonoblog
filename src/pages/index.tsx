@@ -6,6 +6,7 @@ import {client} from "src/libs/client"
 export type Blog = {
   title:string,
   body:string,
+  category:string,
 }
 
 const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
@@ -15,7 +16,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
       <ul>
         {props.contents.map((content) => {
           return(
-            <li className="mt-8 hover:bg-gray-100" key={content.id}>
+            <li className={`mt-8 hover:bg-gray-100 bg-${content.category}`} key={content.id}>
               <Link href={`/blog/${content.id}`}>
                 <a>
                   <p className="text-xl font-bold">{content.title}</p>
