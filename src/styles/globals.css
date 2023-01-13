@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tangsa&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@font-face {
-    font-family:"AguafinaScript" ;
-    src: url(../fonts/AguafinaScript-Regular.ttf);
+
+
+body{
+    font-family: "Hind","Helvetica Neue",Arial,"NotoSans",sans-serif;
+    font-weight: 500;
+    word-spacing:1px;
+    font-feature-settings: 'palt' 1;
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
 }
-h1{
-    font-family: "AguafinaScript";
-}
+

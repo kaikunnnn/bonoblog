@@ -1,3 +1,4 @@
+import SunTop from "components/SunTop";
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
@@ -10,10 +11,15 @@ import { Blog } from "src/pages";
 
 const BlogPost: NextPage<Blog & MicroCMSContentId & MicroCMSDate> = (props) => {
     return(
-        <div>
-            <h1 className="text-4xl mb-3 font-bold">{props.title}</h1>
-            <time dateTime={props.createdAt} className="text-gray-600 mb-8 block">{ dayjs(props.createdAt).format("YYYY年MM月DD日") }</time>
-            <div className=" prose prose-sm " dangerouslySetInnerHTML={{__html: props.body}}/>
+        <div className="m-auto w-10/12">
+            <div className="m-8"></div>
+            <p  className="text-center text-gray-500 font-semibold text-sm">{props.category}</p>
+            <div className="m-4"></div>
+            <h1 className="text-3xl md:text-5xl text-center font-bold md:w-10/12 m-auto">{props.title}</h1>
+            <div className="m-4"></div>
+            <time dateTime={props.createdAt} className="text-gray-600 text-center block">{ dayjs(props.createdAt).format("YYYY年MM月DD日") }</time>
+            <div className="m-12"></div>
+            <div className="prose prose-h2:text-center prose-lg md:prose-xl m-auto " dangerouslySetInnerHTML={{__html: props.body}}/>
         </div>
     )
 }
