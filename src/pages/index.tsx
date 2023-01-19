@@ -1,4 +1,6 @@
+import React from "react";
 import TopHero from "components/TopHero";
+import { motion, Variants  } from "framer-motion"
 import dayjs from "dayjs";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
@@ -10,34 +12,74 @@ export type Blog = {
   title:string,
   body:string,
   category:string,
+  emoji:string,
+  url:string,
 }
 
+const ullist = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+        staggerChildren: 0.48,
+        delay:0.24,
+    },
+  },
+}
+
+const item = {
+  hidden:{
+    opacity:0,
+    y:20,
+},
+show:{
+    opacity:1,
+    y:0,
+    transition:{
+        duration:0.48,
+    }
+
+}
+  
+}
+
+
 const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
-  return <div className="md:w-7/12 md:max-w-3xl w-10/12 m-auto">
-   <TopHero></TopHero>
-      <ul  className="flex-col flex gap-3">
+  return <motion.div className="md:w-8/12 md:max-w-3xl w-10/12 m-auto" >
+      <TopHero></TopHero>
+      <motion.ul 
+      className="flex-col flex gap-4" 
+      variants={ullist} 
+      initial="hidden" 
+      animate="show">
         {props.contents.map((content) => {
+          console.log(content.emoji);
+          
           return(
-            <li className={` hover:bg-gray-100 bg-white rounded-xl p-2  min-h-full shadow-sm	`} key={content.id}>
+            <motion.li  variants={item} 
+            className={` hover:bg-gray-100 bg-white rounded-3xl p-2 md:p-5  min-h-full shadow-sm	`} key={content.id}>
               <Link href={`/blog/${content.id}`}>
                 <a>
-                  <div className="flex content-between items-center gap-3 md:gap-4">
-                    <div className={`flex items-center justify-center content bg-${content.category} w-4/12 h-16 rounded-lg`}>
-                      <Image src="/icon-twitter.svg" alt="sun image" width={20} height={20} objectFit="contain" />
+                  <div className="flex content-between items-center gap-3 md:gap-8">
+                    <div className={`flex items-center justify-center content bg-${content.category} w-4/12 md:w-4/12 md:h-32 h-16 rounded-2xl`}>
+                    <img className="w-16 h-16" src={`${content.emoji.url}` }></img>
+                      {/* <Image src={`/${content.emoji.url}`} alt="sun image" width={20} height={20} objectFit="contain" /> */}
                     </div>
-                    <div className="w-8/12 flex flex-col gap-0">
-                      <h4 className="text-sm text-slate-900 font-semibold ">{content.title}</h4>
+                    <div className="w-8/12 flex flex-col gap-0 md:gap-2">
+                      <h4 className="text-sm md:text-base text-slate-900 font-semibold ">{content.title}</h4>
                       <time dateTime={content.createdAt} className="text-xs text-gray-400">{ dayjs(content.createdAt).format("YYYY年MM月DD日") }</time>
                     </div>
                   </div>
                 </a>
               </Link>
               
-            </li>
+            </motion.li>
           )
         })}
-      </ul>
-    </div>;
+      </motion.ul>
+    </motion.div>;
 };
 
 export const getStaticProps: GetStaticProps<MicroCMSListResponse<Blog>> = async () => {

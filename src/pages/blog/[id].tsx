@@ -1,3 +1,4 @@
+import Blockbonolink from "components/block-bonolink";
 import SunTop from "components/SunTop";
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
@@ -11,15 +12,24 @@ import { Blog } from "src/pages";
 
 const BlogPost: NextPage<Blog & MicroCMSContentId & MicroCMSDate> = (props) => {
     return(
-        <div className="m-auto w-10/12">
-            <div className="m-8"></div>
-            <p  className="text-center text-gray-500 font-semibold text-sm">{props.category}</p>
-            <div className="m-4"></div>
-            <h1 className="text-3xl md:text-5xl text-center font-bold md:w-10/12 m-auto">{props.title}</h1>
-            <div className="m-4"></div>
-            <time dateTime={props.createdAt} className="text-gray-600 text-center block">{ dayjs(props.createdAt).format("YYYY年MM月DD日") }</time>
-            <div className="m-12"></div>
-            <div className="prose prose-h2:text-center prose-lg md:prose-xl m-auto " dangerouslySetInnerHTML={{__html: props.body}}/>
+        <div>
+            <div  className="m-auto w-10/12">
+                <div className="m-8"></div>
+                <p  className="text-center text-gray-500 font-semibold text-sm">{props.category}</p>
+                <div className="m-4"></div>
+                <h1 className="!leading-normal text-3xl md:text-5xl text-center font-bold md:w-10/12 m-auto ">{props.title}</h1>
+                <div className="m-4"></div>
+                <time dateTime={props.createdAt} className="text-gray-600 text-center block">{ dayjs(props.createdAt).format("YYYY年MM月DD日") }</time>
+                <div className="m-12"></div>
+                <div className="prose prose-h2:text-center prose-lg md:prose-xl m-auto " dangerouslySetInnerHTML={{__html: props.body}}/>
+                <div className="pt-12 pb-12 m-auto w-10/12">
+                    <hr className="w-full bg-white" />
+                    <p className="text-center pt-12 pb-12 font-medium ">読んでいただきありがとうございました!!</p>
+                    <hr className="w-full bg-white" />
+                </div>
+            </div>
+            
+            <Blockbonolink></Blockbonolink>
         </div>
     )
 }

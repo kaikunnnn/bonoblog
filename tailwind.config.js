@@ -9,6 +9,10 @@ module.exports = {
       '3xl': ['2rem', {
         lineHeight: '2.75rem',
       }],
+
+      'prose-xl': ['1.8rem', {
+        lineHeight: '2.4rem',
+      }],
       },
       backgroundImage: {
         'bgTop': "url('../img/top-image.svg')",

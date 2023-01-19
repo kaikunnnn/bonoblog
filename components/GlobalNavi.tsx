@@ -3,20 +3,16 @@ import Link from "next/link";
 
 function GlobalNavi() {
   return( 
-          <header className="sp:py-14 sp:px-12 py-7 px-6 flex justify-between w-full content-center ">
+          <header className="md:py-12 md:px-14 md:pb-4 py-7 px-6 flex justify-between w-full content-center ">
 
             {/* サイトロゴ */}
             <div>
                 <Link href="/">
-                  <a>
-                    <div className="flex space-x-2 content-center items-center ">
+                    <div className="cursor-pointer flex space-x-2 content-center items-center ">
                       <Image className="rounded-full "  src="/kaikun_me.jpg" alt="kaikunlogo" width={40} height={40} objectFit="contain" />
-                      <a className="text-base leading-none font-hind font-bold">KAIKUN</a>
+                      <a className="text-xl pt-1 leading-none font-hind font-bold">KAIKUN</a>
                     </div> 
-                  </a>
                 </Link> 
-                {/* コメント */}
-                <div></div>
             </div>
 
             {/* ソーシャル */}
@@ -36,7 +32,8 @@ function GlobalNavi() {
               </ul>
             </div>
             
-          </header>);
+          </header>
+          );
 }
 
 export default GlobalNavi;
