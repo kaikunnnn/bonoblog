@@ -15,7 +15,7 @@ module.exports = {
       }],
       },
       backgroundImage: {
-        'bgTop': "url('../img/top-image.svg')",
+        'bgTop': "url('/top-image.svg')",
       },
       fontFamily:{
         hind: ['Hind'],
