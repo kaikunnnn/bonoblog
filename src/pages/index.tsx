@@ -12,8 +12,7 @@ export type Blog = {
   title:string,
   body:string,
   category:string,
-  emoji:string,
-  url:string,
+  emoji:any,
 }
 
 const ullist = {
@@ -47,27 +46,24 @@ show:{
 
 
 const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
-  return <motion.div className="md:w-8/12 md:max-w-3xl w-10/12 m-auto" >
+  return <motion.div className="md:w-8/12 md:max-w-3xl w-11/12 m-auto" >
       <TopHero></TopHero>
       <motion.ul 
-      className="flex-col flex gap-4" 
+      className="flex-col flex gap-3" 
       variants={ullist} 
       initial="hidden" 
       animate="show">
         {props.contents.map((content) => {
-          console.log(content.emoji);
-          
           return(
             <motion.li  variants={item} 
-            className={` hover:bg-gray-100 bg-white rounded-3xl p-2 md:p-5  min-h-full shadow-sm	`} key={content.id}>
+            className={` hover:bg-gray-100 bg-white rounded-2xl p-3 md:p-3 pr-3 md:pr-6  min-h-full shadow-sm	`} key={content.id}>
               <Link href={`/blog/${content.id}`}>
                 <a>
                   <div className="flex content-between items-center gap-3 md:gap-8">
-                    <div className={`flex items-center justify-center content bg-${content.category} w-4/12 md:w-4/12 md:h-32 h-16 rounded-2xl`}>
-                    <img className="w-16 h-16" src={`${content.emoji.url}` }></img>
-                      {/* <Image src={`/${content.emoji.url}`} alt="sun image" width={20} height={20} objectFit="contain" /> */}
+                    <div className={`flex items-center justify-center content bg-${content.category} w-4/12 md:w-4/12 md:h-32 h-16 py-10  rounded-xl`}>
+                      <img className="md:w-16 md:h-16 w-8 h-8" src={`${content.emoji.url}` }></img>
                     </div>
-                    <div className="w-8/12 flex flex-col gap-0 md:gap-2">
+                    <div className="w-8/12 flex flex-col gap-1 md:gap-2">
                       <h4 className="text-sm md:text-base text-slate-900 font-semibold ">{content.title}</h4>
                       <time dateTime={content.createdAt} className="text-xs text-gray-400">{ dayjs(content.createdAt).format("YYYY年MM月DD日") }</time>
                     </div>

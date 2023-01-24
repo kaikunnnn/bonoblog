@@ -18,15 +18,15 @@ function GlobalNavi() {
             {/* ソーシャル */}
             <div className="flex items-center">
               <ul className="flex content-center space-x-6">
-                <li className="flex items-center">
-                  <Link href="">
-                      <a  className="flex content-center"><Image src="/icon-twitter.svg" alt="sun image" width={20} height={20} objectFit="contain" /></a>
-                  </Link>
+                <li className="flex items-center cursor-pointer">
+                  <a target="_blank" href="https://twitter.com/takumii_kai" rel="noreferrer">
+                      <span  className="flex content-center"><Image src="/icon-twitter.svg" alt="sun image" width={20} height={20} objectFit="contain" /></span>
+                  </a>
                 </li>
-                <li className="flex content-center">
-                  <Link href="">
-                      <a className="flex content-center"><Image src="/icon-YouTube.svg" alt="sun image" width={20} height={20} objectFit="contain" /></a>
-                  </Link>
+                <li className="flex content-center cursor-pointer">
+                  <a target="_blank" href="https://www.youtube.com/channel/UCghPjck_LzxNMs2tI4PPYlQ/" rel="noreferrer">
+                      <span className="flex content-center"><Image src="/icon-YouTube.svg" alt="sun image" width={20} height={20} objectFit="contain" /></span>
+                  </a>
                   
                 </li>
               </ul>

@@ -20,7 +20,7 @@ function TopHero() {
   return( 
   <motion.div variants={item} initial="hidden" animate="visible" className="flex-col m-auto gap-4 pt-24 pb-36 text-center justify-center">
     <h1 className="md:text- font-hind font-extrabold text-8xl md:text-9xl">HOPE.</h1>
-    <p className="text-xxs md:text-sm tracking-wider text-gray-400">"陛下、受信したデータです。何のデータなのですか？"</p>
+    <p className="text-xxs md:text-sm tracking-wider text-gray-400">陛下、受信したデータです。何のデータなのですか？</p>
   </motion.div>
           );
 }

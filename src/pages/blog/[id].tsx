@@ -15,17 +15,31 @@ const BlogPost: NextPage<Blog & MicroCMSContentId & MicroCMSDate> = (props) => {
         <div>
             <div  className="m-auto w-10/12">
                 <div className="m-8"></div>
-                <p  className="text-center text-gray-500 font-semibold text-sm">{props.category}</p>
+                <img className="md:w-24 md:h-24 w-16 h-16 text-center m-auto" src={`${props.emoji.url}` }></img>
+                
+                <div className="m-5"></div>
+                <h1 className="!leading-normal text-4xl md:text-5xl text-center font-bold md:w-10/12 m-auto ">{props.title}</h1>
                 <div className="m-4"></div>
-                <h1 className="!leading-normal text-3xl md:text-5xl text-center font-bold md:w-10/12 m-auto ">{props.title}</h1>
-                <div className="m-4"></div>
-                <time dateTime={props.createdAt} className="text-gray-600 text-center block">{ dayjs(props.createdAt).format("YYYY年MM月DD日") }</time>
+                <div className="flex m-auto justify-center gap-2">
+                    <p  className="text-center text-gray-500 font-semibold text-base">{props.category} | </p>
+                    <time dateTime={props.createdAt} className="text-gray-600 text-center block">{ dayjs(props.createdAt).format("YYYY年MM月DD日") }</time>
+                </div>
+                
                 <div className="m-12"></div>
-                <div className="prose prose-h2:text-center prose-lg md:prose-xl m-auto " dangerouslySetInnerHTML={{__html: props.body}}/>
+                <hr className="w-2/12 m-auto border-gray-400" />
+                <div className="m-12"></div>
+                <div className="
+                    prose 
+                    prose-h1:text-3xl prose-h1:text-center
+                    prose-h2:text-center 
+                    prose-lg 
+                    prose-p:leading-loose
+                    md:prose-xl 
+                    m-auto " dangerouslySetInnerHTML={{__html: props.body}}/>
                 <div className="pt-12 pb-12 m-auto w-10/12">
-                    <hr className="w-full bg-white" />
-                    <p className="text-center pt-12 pb-12 font-medium ">読んでいただきありがとうございました!!</p>
-                    <hr className="w-full bg-white" />
+                    <hr className="w-full border-gray-300" />
+                    <p className="text-center pt-12 pb-12 font-medium ">😇<br></br>読んでいただきありがとうございました!!</p>
+                    <hr className="w-full border-gray-300" />
                 </div>
             </div>
             
