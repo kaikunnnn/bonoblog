@@ -4,9 +4,9 @@ import { motion, Variants  } from "framer-motion"
 import dayjs from "dayjs";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {client} from "src/libs/client"
+import SEO from "components/seo";
 
 export type Blog = {
   title:string,
@@ -46,7 +46,18 @@ show:{
 
 
 const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
-  return <motion.div className="md:w-8/12 md:max-w-3xl w-11/12 m-auto" >
+  return <>
+   <SEO 
+     title="BONOブログ" 
+     description="テストのディスクリプション" 
+     imgUrl="https:kaikun.bo-no.blog/ogp-bonoblog.jpg"
+     ogTitle="BONO BLOG"
+     ogDescription="UI/UXの動画コンテンツコミュニティ「BONO」を運営するカイクンの個人ブログです。"
+     ogWidth='1200'
+     ogHeight="600">
+      
+     </SEO>
+  <motion.div className="md:w-8/12 md:max-w-3xl w-11/12 m-auto" >
       <TopHero></TopHero>
       <motion.ul 
       className="flex-col flex gap-3" 
@@ -75,7 +86,9 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           )
         })}
       </motion.ul>
-    </motion.div>;
+    </motion.div>
+  
+  </>;
 };
 
 export const getStaticProps: GetStaticProps<MicroCMSListResponse<Blog>> = async () => {

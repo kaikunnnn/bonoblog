@@ -11,6 +11,7 @@ import FooterBlock from "components/Footer";
 function MyApp({ Component, pageProps }: AppProps) {
   return( 
     <div className="max-h-full bg-bgTop bg-no-repeat bg-cover text-slate-900">
+    
       <div className="">
           <GlobalNavi></GlobalNavi>
           <SunTop></SunTop>

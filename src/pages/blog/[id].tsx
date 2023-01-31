@@ -1,17 +1,28 @@
 import Blockbonolink from "components/block-bonolink";
-import SunTop from "components/SunTop";
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import dynamic from "next/dynamic";
-import { Props } from "next/script";
 import { client } from "src/libs/client";
 import { Blog } from "src/pages";
+import SEO from "components/seo";
+
 
 
 
 const BlogPost: NextPage<Blog & MicroCMSContentId & MicroCMSDate> = (props) => {
     return(
+        <>
+        
+        <SEO 
+            title={props.title} 
+            description={props.description} 
+            imgUrl={`${props.emoji.url}`}
+            ogTitle={`${props.title} | BONO BLOG`}
+            ogDescription={props.description} 
+            ogWidth='400'
+            ogHeight="400">
+        </SEO>
+         
         <div>
             <div  className="m-auto w-10/12">
                 <div className="m-8"></div>
@@ -45,6 +56,7 @@ const BlogPost: NextPage<Blog & MicroCMSContentId & MicroCMSDate> = (props) => {
             
             <Blockbonolink></Blockbonolink>
         </div>
+        </>
     )
 }
 
@@ -68,7 +80,6 @@ export const getStaticProps: GetStaticProps< {} ,{id:string}> = async (ctx) => {
         endpoint:"blog",
         contentId: ctx.params.id,
     });
-    console.log(data);
     return{
         props:data,
     }
