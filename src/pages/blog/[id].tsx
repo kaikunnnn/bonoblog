@@ -20,8 +20,8 @@ const BlogPost: NextPage<Blog & MicroCMSContentId & MicroCMSDate> = (props) => {
             imgUrl={`${props.emoji.url}`}
             ogTitle={`${props.title} | BONO BLOG`}
             ogDescription={props.description} 
-            ogWidth='400'
-            ogHeight="400">
+            ogWidth='160'
+            ogHeight="160">
         </SEO>
          
         <div>
