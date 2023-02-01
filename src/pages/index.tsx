@@ -13,6 +13,7 @@ export type Blog = {
   body:string,
   category:string,
   emoji:any,
+  description:string
 }
 
 const ullist = {

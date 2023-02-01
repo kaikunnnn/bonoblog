@@ -10,6 +10,7 @@ import SEO from "components/seo";
 
 
 const BlogPost: NextPage<Blog & MicroCMSContentId & MicroCMSDate> = (props) => {
+    
     return(
         <>
         
