@@ -59,7 +59,7 @@ function SEO({title,description,imgUrl,ogTitle,ogDescription,ogWidth,ogHeight}:H
       <meta property="og:image" content={imgUrl} />
       <meta property="og:image:width" content={ogWidth} />
       <meta property="og:image:height" content={ogHeight}/>
-      <link rel="icon" href="https://kaikun.bo-no.blog/favicon.ico" sizes="any"></link>
+      <link rel="icon" href="https://kaikun.bo-no.design/favicon.ico" sizes="any"></link>
     </Head>
   )
 }
